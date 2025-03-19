@@ -86,5 +86,11 @@
 			WHERE id=#{id}
 		]]>
 	</update>
+	
+	<delete id="deleteMember" parameterType="int">
+    	<![CDATA[
+    		DELETE FROM member WHERE member_idx=#{loginMemberIdx}
+    	]]>
+    </delete>
  	
 </mapper>

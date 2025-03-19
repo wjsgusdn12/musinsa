@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -145,12 +146,14 @@
 						</div>
 					</div>
 				</c:forEach>
+				<!-- 좋아요 없을 경우 -->
+				<c:if test="${fn:length(likedList) == 0}">
+					<div class="do_not_have_likes">
+						<b>좋아요한 상품이 없습니다.</b><br/>
+						<a href="index">상품 보러 가기</a>
+					</div>
+				</c:if>
 			</div>
-			<!-- 좋아요 없을 경우 -->
-			<!-- <div class="do_not_have_likes">
-				<b>좋아요한 상품이 없습니다.</b><br/>
-				<a href="index">상품 보러 가기</a>
-			</div> -->
 		</div>
 		<div class="main_footer">
 			<div class="center_div likes">

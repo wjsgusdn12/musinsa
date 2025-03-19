@@ -22,10 +22,7 @@
 			});
 			/* 구매하기 클릭시 */
 			$(".submit_input").click(function(event) {
-				let loginMemberIdx = ${sessionScope.loginMemberIdx};
-				
-				let sizeIdx = ${sessionScope.loginMemberIdx};
-				let quantity = ${sessionScope.loginMemberIdx};
+				let loginMemberIdx = "${sessionScope.loginMemberIdx}";
 				let finalTotalPrice = 0;
 			    // 각 .cart_list 요소 순회
 			    $(".cart_list").each(function() {
@@ -49,11 +46,10 @@
 			       			quantity : quantity.replace("개","")
 			       		},
 			       		success:function(res){
-			       			console.log("주문서 상세 테이블에 추가 완료 : " + res);
+			       			console.log("주문서 상세 테이블에 추가 : " + res);
 			       			location.href="order_detail";
 			       		},
 			       		error:function(r,s,e){
-			       			alert("error"); return;
 			       			console.log(r,s,e);
 			       		}
 			       	});

@@ -12,4 +12,5 @@ public interface MemberDao {
 	String getPasswordById(String id);
 	void modifyPwAction(String id, String pw);
 	void modifyMember(String id, String email, String name, String address, String phone);
+	void deleteMember(int loginMemberIdx);
 }

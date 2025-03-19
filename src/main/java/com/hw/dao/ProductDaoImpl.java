@@ -137,4 +137,12 @@ public class ProductDaoImpl implements ProductDao{
 		return sqlSession.selectList("ProductMapper.selectMemberAsk", loginMemberIdx);
 	}
 
+	@Override
+	public void deleteCartAfterOrder(int loginMemberIdx) {
+		Map<String, Object> value = new HashMap<>();
+		value.put("loginMemberIdx", loginMemberIdx);
+		
+		sqlSession.delete("ProductMapper.deleteCartAfterOrder", value);
+	}
+
 }

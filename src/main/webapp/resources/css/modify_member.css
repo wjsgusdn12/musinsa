@@ -8,3 +8,82 @@
     padding: 5px;
     margin: 5px 0 5px 0;
 }
+
+.cancel_membership {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #d51212;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    position: relaive;
+}
+
+.popup_cancel_membership_background{
+	width:100%;
+	height:100%;
+	background-color:rgb(0,0,0,0.8);
+	position:absolute;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	display:none;
+}
+
+.popup_cancel_membership{
+	width:450px;
+	height:150px;
+	background-color:white;
+	position:absolute;
+	border-radius:10px;
+	border:2px solid lightgray;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+}
+
+.message_text_area{
+	font-weight:bold;
+	font-size:18px;
+	padding:10px 0px 20px 0px;
+}
+
+.message_button_area{
+	padding:10px 0px 0px 0px;
+	display:flex;
+	gap:15px;
+}
+
+.cancel_back_button {
+    width: 200px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    color:black;
+}
+
+.cancel_back_button:hover {
+    background-color:rgba(0,0,0,0.15);
+}
+
+.final_cancel_membership{
+	width: 200px;
+    height: 45px;
+    background-color: #d51212;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    color:white;
+}
+
+.final_cancel_membership:hover {
+    background-color:rgba(213,18,18,0.75);
+}

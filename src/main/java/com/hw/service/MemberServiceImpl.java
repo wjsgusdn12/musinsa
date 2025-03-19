@@ -83,4 +83,9 @@ public class MemberServiceImpl implements MemberService{
 		mDao.modifyMember(id, email, name, address, phone);
 	}
 
+	@Override
+	public void deleteMember(int loginMemberIdx) {
+		mDao.deleteMember(loginMemberIdx);
+	}
+
 }

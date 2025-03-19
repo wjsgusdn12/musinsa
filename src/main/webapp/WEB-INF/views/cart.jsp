@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -254,7 +255,7 @@
 				});
 			});
 			/* 구매하기 클릭시 */
-			$(".submit_input").click(function(event) {
+			$(".submit_input.real_button").click(function(event) {
 			    event.preventDefault(); // 폼 제출 방지
 			    location.href="order";
 			});
@@ -383,19 +384,24 @@
 				</div>
 				<!------------------ 삭제 팝업창 ----------------------->
 			</c:forEach>
-			<!-- 장바구니 상품 없을 경우 -->
-			<!-- <div class="do_not_have_likes">
+			<c:if test="${fn:length(cartList) == 0}">
+			   <div class="do_not_have_likes">
 				<b>장바구니에 담은 상품이 없습니다.</b><br/>
 				<a href="index">상품 보러 가기</a>
-			</div> -->
+			</div>
+			</c:if>
 		</div>
 		<div class="main_footer">
 			<!-- 장바구니 상품 있을 경우 -->
-			<form action="" method="post">
-				<input class="submit_input" type="submit" value="${finalPrice }원 구매하기 (${finalQuantity }개)"/>
-			</form>
+			<c:if test="${fn:length(cartList) != 0}">
+				<form action="" method="post">
+					<input class="submit_input real_button" type="submit" value="${finalPrice }원 구매하기 (${finalQuantity }개)"/>
+				</form>
+			</c:if>
 			<!-- 장바구니 상품 없을 경우 -->
-				<!-- <input onclick="location.href='index'" class="submit_input" type="submit" value="쇼핑 계속하기"/> -->
+			<c:if test="${fn:length(cartList) == 0}">
+			   <input onclick="location.href='index'" class="submit_input" type="submit" value="쇼핑 계속하기"/>
+			</c:if>
 		</div>
 	</div>
 </body>

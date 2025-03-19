@@ -97,4 +97,9 @@ public class ProductServiceImpl implements ProductService{
 		return pDao.selectMemberAsk(loginMemberIdx);
 	}
 
+	@Override
+	public void deleteCartAfterOrder(int loginMemberIdx) {
+		pDao.deleteCartAfterOrder(loginMemberIdx);
+	}
+
 }

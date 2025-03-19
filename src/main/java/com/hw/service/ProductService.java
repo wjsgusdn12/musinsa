@@ -22,6 +22,7 @@ public interface ProductService {
 	List<AskDto> selectProductAsk(int productIdx);
 	List<AskDto> selectMemberAsk(int loginMemberIdx);
 	void insertOrderDetail(int loginMemberIdx, int productIdx, int sizeIdx, int quantity);
+	void deleteCartAfterOrder(int loginMemberIdx);
 	List<OrderDto> selectAllOrder(int loginMemberIdx);
 	void deleteOrderProduct(int orderIdx);
 }

@@ -11,4 +11,5 @@ public interface MemberService {
 	MemberDto selectMemberIdxAndName(String id);
 	void modifyPwAction(String id, String pw);
 	void modifyMember(String id, String email, String name, String address, String phone);
+	void deleteMember(int loginMemberIdx);
 }

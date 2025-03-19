@@ -186,6 +186,13 @@
 		]]>
 	</insert>
 	
+	<delete id="deleteCartAfterOrder" parameterType="map">
+		<![CDATA[
+			DELETE FROM cart 
+			WHERE member_idx=#{loginMemberIdx, jdbcType=INTEGER}
+		]]>
+	</delete>
+	
 	<resultMap id="orderResultMap" type="com.hw.dto.OrderDto">
 		<result property="orderIdx" column="order_idx"></result>
 		<result property="img" column="img"></result>
@@ -214,7 +221,6 @@
 			FROM order_detail o
 			INNER JOIN product p ON p.product_idx = o.product_idx
 			INNER JOIN product_size ps ON ps.size_idx = o.size_idx
-			INNER JOIN cart c ON o.member_idx = c.member_idx
 			WHERE o.member_idx = #{loginMemberIdx, jdbcType=INTEGER}
 			ORDER BY o.order_idx DESC
 	    ]]>
@@ -239,5 +245,5 @@
         SET status = #{status, jdbcType=VARCHAR}
         WHERE order_idx = #{orderIdx, jdbcType=INTEGER}
     </update>
-	
+    
 </mapper>

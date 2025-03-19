@@ -83,6 +83,13 @@ public class HomeController {
 		return "success";
 	}
 	
+	@RequestMapping("/deleteMember")
+	@ResponseBody
+	public String deleteMember(int loginMemberIdx) {
+		mService.deleteMember(loginMemberIdx);
+		return "success";
+	}
+	
 	@RequestMapping("/find_id")
 	public String findId() {
 		return "find_id";
@@ -139,6 +146,13 @@ public class HomeController {
 	@ResponseBody
 	public String insertOrderDetail(int loginMemberIdx, int productIdx, int sizeIdx, int quantity, HttpSession session) {
 		pService.insertOrderDetail(loginMemberIdx, productIdx, sizeIdx, quantity);
+		return "success";
+	}
+
+	@RequestMapping("/deleteCartAfterOrder")
+	@ResponseBody
+	public String deleteCartAfterOrder(int loginMemberIdx) {
+		pService.deleteCartAfterOrder(loginMemberIdx);
 		return "success";
 	}
 	

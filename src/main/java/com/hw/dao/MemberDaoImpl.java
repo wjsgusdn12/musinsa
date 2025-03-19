@@ -114,5 +114,10 @@ public class MemberDaoImpl implements MemberDao{
 		value.put("phone", phone);
 		sqlSession.update("MemberMapper.modifyMember", value);
 	}
+
+	@Override
+	public void deleteMember(int loginMemberIdx) {
+		sqlSession.delete("MemberMapper.deleteMember", loginMemberIdx);
+	}
 	
 }

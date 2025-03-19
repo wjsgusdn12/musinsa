@@ -185,10 +185,47 @@
                     }
                 }).open();
             }
+            $(".cancel_membership").click(function(){
+            	$(".popup_cancel_membership_background").css('display','flex');
+            });
+            $(".cancel_back_button").click(function(){
+            	$(".popup_cancel_membership_background").css('display','none');
+            });
+            $(".final_cancel_membership").click(function(){
+            	let loginMemberIdx = "${sessionScope.loginMemberIdx}";
+            	$.ajax({
+            		url:'deleteMember',
+            		type:'post',
+            		data:{
+            			"loginMemberIdx":loginMemberIdx
+            		},
+            		success:function(res){
+            			console.log(res);
+            			alert("회원 탈퇴가 완료되었습니다, 로그인 페이지로 이동합니다.");
+            			location.href="login";
+            		},
+            		error:function(r,s,e){
+            			console.log(r,s,e);
+            		}
+            	});
+            });
         });
 	</script>
 </head>
 <body>
+	<!-- 팝업 공간 -->
+	<div class="popup_cancel_membership_background">
+		<div class="popup_cancel_membership">
+			<div class="message_text_area">
+				정말 회원 탈퇴 하시겠습니까?
+			</div>
+			<div class="message_button_area">
+				<input class="cancel_back_button" type="button" value="돌아가기"/>
+				<input class="final_cancel_membership" type="button" value="탈퇴하기"/>
+			</div>
+		</div>
+	</div>
+	<!-- 팝업 공간 -->
 	<div class="main_area">
 		<div class="main_top">
 			<div class="main_top_left">
@@ -219,6 +256,7 @@
 				<b>연락처</b>
 				<input value="${sessionScope.loginMemberPhone}" class="phone_input" type="text" name="phone" placeholder="연락처 입력"/>
 				<input onclick="return check();" class="submit_input" type="submit" value="변경하기"/>
+				<input class="cancel_membership" type="button" value="회원탈퇴"/>
 		</div>
 	</div>
 </body>

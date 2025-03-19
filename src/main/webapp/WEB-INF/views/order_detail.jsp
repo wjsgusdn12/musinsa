@@ -15,6 +15,21 @@
 	<script src="<%= request.getContextPath() %>/resources/js/jquery-3.7.1.min.js"></script>
 	<script>
 		$(function(){
+		    let loginMemberIdx = "${sessionScope.loginMemberIdx}";
+		    $.ajax({
+		    	url:'deleteCartAfterOrder',
+		    	type:'post',
+		    	data:{
+		    		"loginMemberIdx":loginMemberIdx
+		    	},
+		    	success:function(res){
+		    		consoloe.log(res);
+		    	},
+		    	error:function(r,s,e){
+		    		consoloe.log(r,s,e);
+		    	}
+		    });
+		    
 			$(".cart_list").each(function(){
 				let dateText = $(this).find(".date_text").text();
 			    let formattedDate = dateText.split(" ")[0];
@@ -95,8 +110,8 @@
 							var alertBox = document.getElementById("customAlert");
 							alertBox.style.visibility = "visible"; // 알림을 보이게 설정
 							setTimeout(function() {
-							alertBox.style.visibility = "hidden"; // 1초 후에 알림 숨기기
-							}, 1000);
+							alertBox.style.visibility = "hidden"; // 3초 후에 알림 숨기기
+							}, 3000);
 						}
 						// 페이지 로딩 후 알림 띄우기
 						showAlert();
