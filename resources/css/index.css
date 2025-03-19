@@ -1,0 +1,295 @@
+@charset "UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	overflow:hidden;
+  	transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+body{
+	width:100vw;
+	height:100vh;
+	background-color:white;
+	overflow-y:scroll;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+.main_area{
+	width:600px;
+	height:100%;
+	border:1px solid #EAEAEA;
+}
+
+.main_top{
+	width:600px;
+	height:65px;
+	background-color:black;
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+	padding:15px;
+}
+
+.main_top_left{
+	display:flex;
+	align-items:center;
+}
+
+.back_button{
+	cursor:pointer;
+}
+
+.home_button{
+	cursor:pointer;
+	font-size:22px;
+	color:white;
+}
+
+.main_content{
+	padding:10px;
+	overflow-y:scroll;
+	height: 86.5%;
+}
+
+.id_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.pw_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.submit_input{
+	width:100%;
+	height:40px;
+	margin-top:15px;
+	margin-bottom:15px;
+	background-color:black;
+	color:white;
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+}
+
+.find_id, .find_pw{
+	color:gray;
+	font-size:13px;
+	padding-left:5px;
+	border-left:1px solid lightgray;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.join_or_find{
+	display:flex;
+	align-items:center;
+	justify-content:flex-end;
+	gap:5px;
+}
+
+.join_button{
+	margin-right:3px;
+	background-color:white;
+	border:1px solid gray;
+	border-radius:4px;
+	padding:4px;
+	font-weight:bold;
+	cursor:pointer;
+	font-size:12px;
+}
+
+.name_input,
+.phone_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+
+.main_footer{
+	width:599px;
+	height:65px;
+	background-color:white;
+	border:1px solid #EAEAEA;
+	position:absolute;
+	bottom:0;
+	display:flex;
+	align-items:center;
+	justify-content:space-around;
+	color:gray;
+}
+
+.center_div{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction: column;
+	cursor:pointer;
+	width:100%;
+	height:100%;
+}
+
+.center_div:hover{
+	background-color:#EAEAEA;
+}
+
+.cart_logo{
+	cursor:pointer;
+}
+
+.item_main_whole{
+	width: 617px;
+    min-width: 617px;
+    height: 86%;
+    display: flex;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.item_main_div{
+	width:199px;
+	height:355px;
+	display:grid;
+}
+
+.item_main_div:hover{
+	background-color:#EAEAEA;
+	cursor:pointer;
+}
+
+/* 상품 hover 시작 */
+.item_main_div {
+  position: relative;
+  display: inline-block; /* 이미지가 포함된 div가 적절히 배치되도록 */
+  transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.item_img {
+  position: relative; /* 이미지 영역이 배경색을 적용받게 하기 위한 설정 */
+  transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.item_main_div:hover .item_img {
+  background-color: #EAEAEA;  /* 호버 시 배경색 */
+}
+
+.item_img img {
+  display: block; /* 이미지를 블록 요소로 만들어 부모 div의 크기와 일치하도록 */
+  width: 100%; /* 이미지가 부모 div에 맞게 늘어나도록 */
+  height: 100%; /* 비율에 맞춰 이미지 크기 조정 */
+  position: relative;
+  z-index: 1;
+  transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.item_main_div:hover .item_img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.075);  /* 호버 시 배경색 */
+  z-index: 1; /* 이미지 위에 배경색이 올라가게 설정 */
+  transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+/* 상품 hover 끝 */
+
+.item_img{
+	height:240px;
+}
+
+.item_info{
+	height: 138px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.item_img_tag{
+	width: 199px;
+    height: 240px;
+}
+
+.brand_info,
+.name_info,
+.price_info{
+	font-size:14px;
+}
+
+.hidden{
+	display:none;
+}
+
+.product_like {
+    position: absolute;
+    z-index: 100;
+    margin: -30px 0px 0 169px;
+    width: 25px;
+    height: 25px;
+    fill: black;
+    stroke: white;
+}
+
+.product_like:hover{
+	fill: red;
+}
+
+.member_info_text {
+    color: white;
+    z-index: 1;
+    font-size: 12px;
+    height: 17px;
+    min-width: 197px;
+    margin: 46px 18px 0 -97px;
+}
+
+.product_like .like_heart.on {
+    stroke: #ff002d; /* 외곽선 색상 */
+    fill: #ff0000;   /* 하트 내부 색상 */
+    fill-opacity: 1; /* 채우기 불투명도 */
+}
+.product_like .like_heart {
+    stroke: '';      /* 원래 외곽선 색상 */
+    fill: '';        /* 원래 채우기 색상 */
+    fill-opacity: 0.3; /* 원래 채우기 불투명도 */
+}
+
+.selectCartQuantity {
+    color: white;
+    background-color: #245eff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 0 0 0 13px;
+    transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.selectCartQuantity:hover {
+	cursor:pointer;
+	background-color: rgba(36, 94, 255, 0.9); /* 원래 색상을 유지하면서 투명도를 주는 방식으로 덮어쓰기 */
+}

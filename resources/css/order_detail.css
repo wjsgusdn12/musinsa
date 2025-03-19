@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.check_popup_background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    top: 0;
+    margin: 0 0 0 -11px;
+}
+
+.re_buy {
+    height: 36px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.75s ease;
+}
+
+.cart_list {
+    width: 563px;
+    height: 200px;
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #EAEAEA;
+    transition: background-color 0.75s ease;
+}
+
+.status_button_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.status_view,
+.order_cancel{
+	width:280px;
+    height: 36px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.75s ease;
+}
+
+.order_confirmation{
+	width:280px;
+	height: 36px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.75s ease;
+    display:none;
+}
+
+.status_view:hover,
+.order_cancel:hover,
+.order_confirmation:hover{
+	background-color:rgba(0,0,0,0.07);
+}
+
+.delete_popup_text {
+    margin-right: 51%;
+    font-size: 13px;
+}
+
+#customAlert {
+    visibility: hidden;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    font-size: 17px;
+}
+
+#customAlert_shipping_start {
+    visibility: hidden;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#customAlert_shipping_end {
+    visibility: hidden;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.alert_message{
+	
+}

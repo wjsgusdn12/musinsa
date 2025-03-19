@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+
+	<resultMap id="memberResultMap" type="com.hw.dto.MemberDto">
+	    <result property="memberIdx" column="member_idx"/>
+	    <result property="email" column="email"/>
+	    <result property="id" column="id"/>
+	    <result property="pw" column="pw"/>
+	    <result property="name" column="name"/>
+	    <result property="address" column="address"/>
+	    <result property="phone" column="phone"/>
+	    <result property="joinDate" column="join_date"/>
+	    <result property="profileImg" column="profile_img"/>
+	</resultMap>
+
+ 	<insert id="insertMember">
+	 	<![CDATA[	
+	 		INSERT INTO member (member_idx, email, id, pw, name, address, phone)
+	 		VALUES (seq_member_idx.nextval,#{email},#{id},#{pw},#{name},#{address},#{phone})
+	 	]]>
+ 	</insert>
+ 	
+ 	<select id="selectMemberIdCheck" resultType="int">
+	 	<![CDATA[	
+	 		SELECT COUNT(id)
+			FROM member
+			WHERE id=#{id}
+	 	]]>
+ 	</select>
+ 	
+ 	<select id="selectId" resultType="String">
+ 		<![CDATA[
+ 			SELECT id
+			FROM member
+			WHERE name=#{name} AND phone=#{phone}
+ 		]]>
+ 	</select>
+ 	
+ 	<select id="selectPw" resultType="String">
+ 		<![CDATA[
+ 			SELECT pw
+			FROM member
+			WHERE id=#{id} AND name=#{name} AND phone=#{phone}
+ 		]]>
+ 	</select>
+
+ 	<select id="loginCheck" resultType="int">
+	    <![CDATA[
+	        SELECT COUNT(*)
+	        FROM member
+	        WHERE id = #{id, jdbcType=VARCHAR} AND pw = #{pw, jdbcType=VARCHAR}
+	    ]]>
+	</select>
+	
+	<select id="selectMemberIdxAndName" resultMap="memberResultMap">
+	    <![CDATA[
+	        SELECT *
+	        FROM member
+	        WHERE id = #{id}
+	    ]]>
+	</select>
+	
+	<select id="getPasswordById" resultType="String">
+	    <![CDATA[
+		    SELECT pw
+		    FROM member
+		    WHERE id = #{id}
+	    ]]>
+	</select>
+	
+	<update id="modifyPwAction">
+		<![CDATA[
+			UPDATE member SET pw=#{pw} WHERE id=#{id}
+		]]>
+	</update>
+	
+	<update id="modifyMember">
+		<![CDATA[
+			UPDATE member SET  email=#{email},
+			                    name=#{name},
+			                    address=#{address},
+			                    phone=#{phone}
+			WHERE id=#{id}
+		]]>
+	</update>
+ 	
+</mapper>

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.main_content{
+	padding:20px;
+	background-color:white;
+}
+
+.input_button {
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+	background-color:white;
+	font-weight:bold;
+	transition: background-color 0.5s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.input_button:hover{
+	cursor:pointer;
+	background-color:rgba(0,0,0,0.05);
+}
+
+a {
+    position: relative;
+    right: -87%;
+    top: 2%;
+}
+
+.member_info_my_page{
+	font-weight:bold;
+	font-size:15px;
+}
+
+.member_info_area {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin:0px 0px 10px 0px
+}
+
+.member_info_area > div {
+    display: flex;
+    align-items: center;
+}
+
+.member_info_area > div > b{
+	width:100px;
+}

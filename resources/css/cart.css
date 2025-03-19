@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+.main_footer{
+	background-color:rgb(245,245,245);
+}
+
+.main_content{
+	background-color:white;
+    width: 598px;
+	height: 86.5%;
+	overflow-y:scroll;
+}
+
+.main_footer{
+	padding:10px;
+}
+
+form{
+	width:100%;
+}
+
+.main_content {
+    background-color: white;
+    height: 86.5%;
+    padding: 10px 0 10px 10px;
+}
+
+.item_img {
+    height: 120px;
+    width: 560px;
+    display: flex;
+    margin: 0;
+}
+
+.item_img img {
+    display: block;
+    height: 95px;
+    width: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.product_like {
+    position: absolute;
+    z-index: 100;
+    margin: 75px 0px 0 60px;
+    width: 20px;
+    height: 20px;
+    fill: black;
+    stroke: white;
+}
+
+.like_heart.on {
+	stroke: #ff002d;
+	fill: #ff0000;
+	fill-opacity: 1;
+}
+
+.cart_item_info{
+	padding:2.5px 10px 10px 10px;
+}
+
+.option_modify{
+	height:36px;
+	border-radius:5px;
+	border:1px solid lightgray;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition: background-color 0.75s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.cart_list {
+    width: 563px;
+    height: 196px;
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #EAEAEA;
+	transition: background-color 0.75s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+.cart_list:hover {
+	background-color:rgba(245,245,245,0.5);
+	cursor:pointer;
+}
+
+.option_modify:hover{
+	background-color:#f0f0f0;
+	border:1px solid lightgray;
+}
+
+.x_button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    stroke: #5b5b5b;
+    right: 5px;
+}
+
+.x_button:hover{
+	cursor:pointer;
+	background-color:rgba(0,0,0,0.2);
+	border-radius:5px;
+}
+
+.delete_check_popup {
+    width: 420px;
+    height: 125px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.delete_check_popup_background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    top: 0;
+    margin: 0 0 0 -11px;
+}
+
+.no_button {
+    width: 190px;
+    height: 40px;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.yes_button {
+    width: 190px;
+    height: 40px;
+    background-color: black;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete_popup_text{
+	margin-right: 60%;
+    font-size: 13px;
+}
+
+.selected_option {
+    width: 566px;
+    height: 70px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.popup_size_name_text{
+	font-weight:bold;
+	color:black;
+}
+
+.cart_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 279px;
+    height: 46px;
+    margin-right: 10px;
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background-color 1s ease;
+}

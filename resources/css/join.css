@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	overflow:hidden;
+  	transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+body{
+	width:100vw;
+	height:100vh;
+	background-color:white;
+	overflow-y:scroll;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+.main_area{
+	width:600px;
+	height:100%;
+	border:1px solid #EAEAEA;
+}
+
+.main_top{
+	width:600px;
+	height:55px;
+	background-color:#EAEAEA;
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+	padding:10px;
+}
+
+.main_top_left{
+	display:flex;
+	align-items:center;
+}
+
+.back_button{
+	cursor:pointer;
+}
+
+.main_content{
+	padding:10px;
+	height:94.5%;
+}
+
+.id_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	margin-bottom:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.pw_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	margin-bottom:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.email_input,
+.name_input,
+.phone_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	margin-bottom:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.address_input {
+    width: 100%;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.address_input_button {
+    width: 100%;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom:10px;
+}
+
+.submit_input{
+	width:100%;
+	height:40px;
+	margin-top:15px;
+	margin-bottom:15px;
+	background-color:black;
+	color:white;
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+	position:relaive;
+	bottom:5px;
+}
+
+form{
+	height:100%;
+}
+
+.header_text{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-size:40px;
+}
+
+.check_all,
+.check_one,
+.check_two{
+	width:20px;
+	height:20px;
+	border-radius:10px;
+	margin:10px;
+}
+
+.check_div{
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+}
+
+.idCheckMsg{
+	color:red;
+	margin:-15px 0px 0px 0px;
+}

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductMapper">
+
+    <resultMap id="productResultMap" type="com.hw.dto.ProductDto">
+        <result property="productIdx" column="product_idx" />
+        <result property="name" column="name" />
+        <result property="img" column="img" />
+        <result property="price" column="price" />
+        <result property="brand" column="brand" />
+        <result property="description" column="description" />
+    </resultMap>
+
+    <select id="selectAllProduct" resultMap="productResultMap">
+        <![CDATA[
+            SELECT product_idx, name, img, price, brand, description
+            FROM product
+            ORDER BY product_idx DESC
+        ]]>
+    </select>
+    
+    <select id="selectProductInfo" resultMap="productResultMap">
+    	 <![CDATA[
+            SELECT product_idx, name, img, price, brand, description
+			FROM product
+			WHERE product_idx=#{productIdx}
+        ]]>
+    </select>
+    
+    <select id="selectLikedProduct" resultMap="productResultMap">
+	    <![CDATA[
+		    SELECT p.product_idx, p.name, p.img, p.price, p.brand, p.description
+		    FROM product p 
+		    INNER JOIN likes l ON p.product_idx = l.product_idx
+		    WHERE member_idx = #{loginMemberIdx, jdbcType=INTEGER}
+            ORDER BY l.like_idx DESC
+	    ]]>
+	</select>
+    
+    <resultMap id="cartResultMap" type="com.hw.dto.CartDto">
+        <result property="cartIdx" column="cart_idx" />
+        <result property="productIdx" column="product_idx" />
+        <result property="brand" column="brand" />
+        <result property="name" column="name" />
+        <result property="img" column="img" />
+        <result property="sizeName" column="size_name" />
+        <result property="quantity" column="quantity" />
+        <result property="totalPrice" column="total_price" />
+    </resultMap>
+    
+    <select id="selectAllCart" resultMap="cartResultMap">
+    	<![CDATA[
+    		SELECT 
+			    MIN(c.cart_idx) AS "cart_idx",
+			    c.product_idx, 
+			    p.brand, 
+			    p.name, 
+			    p.img,
+			    s.size_name, 
+			    SUM(c.quantity) || '개' AS "quantity",
+			    TO_CHAR(SUM(TO_NUMBER(REPLACE(p.price, ',', '')) * NVL(c.quantity, 0)), 'FM999,999,999') AS "total_price"
+			FROM cart c 
+			INNER JOIN product p ON p.product_idx = c.product_idx
+			INNER JOIN product_size s ON s.size_idx = c.size_idx
+			WHERE c.member_idx = #{loginMemberIdx, jdbcType=INTEGER}
+			GROUP BY c.product_idx, p.brand, p.name, p.img, s.size_name
+			ORDER BY MIN(c.cart_idx) DESC, c.product_idx DESC, s.size_name ASC
+    	]]>
+    </select>
+    
+    <select id="selectAllLikes" resultType="java.util.List">
+    	<![CDATA[
+    		SELECT p.product_idx
+			FROM product p
+			INNER JOIN likes l ON p.product_idx = l.product_idx
+			WHERE l.member_idx = #{loginMemberIdx}
+			ORDER BY 1
+    	]]>
+    </select>
+    
+    <insert id="addLike" parameterType="map">
+    	<![CDATA[
+    		INSERT INTO likes (like_idx, product_idx, member_idx)
+    		VALUES (seq_like_idx.nextval, #{productIdx, jdbcType=INTEGER}, #{loginMemberIdx, jdbcType=INTEGER})
+    	]]>
+    </insert>
+    
+    <delete id="removeLike" parameterType="map">
+    	<![CDATA[
+    		DELETE FROM likes
+			WHERE member_idx=#{loginMemberIdx, jdbcType=INTEGER} AND product_idx=#{productIdx, jdbcType=INTEGER}
+    	]]>
+    </delete>
+    
+    <insert id="insertCart" parameterType="map">
+    	<![CDATA[
+	    	INSERT INTO cart (cart_idx, product_idx, size_idx, quantity, member_idx)
+			VALUES (seq_cart_idx.nextval, #{productIdx, jdbcType=INTEGER}, #{sizeIdx, jdbcType=INTEGER}, #{quantity, jdbcType=INTEGER}, #{loginMemberIdx, jdbcType=INTEGER})
+		]]>
+    </insert>
+    
+    <delete id="deleteCart" parameterType="map">
+    	<![CDATA[
+    		DELETE FROM cart 
+			WHERE cart_idx=#{cartIdx, jdbcType=INTEGER}
+    	]]>
+    </delete>
+    
+    <update id="modifyDeleteCart" parameterType="map">
+    	<![CDATA[
+	    	DELETE FROM cart 
+	    	WHERE product_idx = #{productIdx} AND size_idx = #{deleteSizeIdx}
+	    ]]>
+	</update>
+	
+	<update id="modifyInsertCart" parameterType="map">
+		<![CDATA[
+	    	INSERT INTO cart (cart_idx, product_idx, size_idx, quantity, member_idx)
+	    	VALUES (seq_cart_idx.nextval, #{productIdx}, #{modifySizeIdx}, #{quantity}, #{loginMemberIdx})
+	    ]]>
+	</update>
+	
+	<select id="selectCartQuantity" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM (SELECT product_idx, size_idx
+			        FROM cart
+			        WHERE member_idx=#{loginMemberIdx, jdbcType=INTEGER}
+			        GROUP BY product_idx, size_idx)
+		]]>  
+	</select>
+	
+	<insert id="insertAsk" parameterType="map">
+		<![CDATA[
+			INSERT INTO ask (member_idx, product_idx, title, content, ask_date)
+			VALUES (#{loginMemberIdx, jdbcType=INTEGER}, #{productIdx, jdbcType=INTEGER}, #{title, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, sysdate)
+		]]>
+	</insert>
+	
+	<resultMap id="askResultMap" type="com.hw.dto.AskDto">
+        <result property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="askDate" column="ask_date" />
+        <result property="answer" column="answer" />
+        <result property="answerDate" column="answer_date" />
+    </resultMap>
+	
+	<select id="selectProductAsk" resultMap="askResultMap">
+	    <![CDATA[
+	        SELECT 
+	            SUBSTR(m.id, 1, 3) || '***' AS id, 
+	            a.title, 
+	            a.content, 
+	            TO_CHAR(a.ask_date, 'yyyy-MM-dd') AS ask_date,
+	            a.answer, 
+	            NVL(TO_CHAR(a.answer_date, 'yyyy-MM-dd'), '-') AS answer_date
+	        FROM ask a
+	        INNER JOIN member m ON m.member_idx = a.member_idx
+	        WHERE a.product_idx = #{productIdx, jdbcType=INTEGER}
+	    ]]>
+	</select>
+	
+	<insert id="insertOrderDetail" parameterType="map">
+		<![CDATA[
+			INSERT INTO order_detail (order_idx, member_idx, product_idx, size_idx, quantity)
+			VALUES (seq_order_idx.nextval, #{loginMemberIdx, jdbcType=INTEGER},#{productIdx, jdbcType=INTEGER},#{sizeIdx, jdbcType=INTEGER},#{quantity, jdbcType=INTEGER})
+		]]>
+	</insert>
+	
+	<resultMap id="orderResultMap" type="com.hw.dto.OrderDto">
+		<result property="orderIdx" column="order_idx"></result>
+		<result property="img" column="img"></result>
+		<result property="brand" column="brand"></result>
+		<result property="name" column="name"></result>
+		<result property="sizeName" column="size_name"></result>
+		<result property="productIdx" column="product_idx"></result>
+		<result property="quantity" column="quantity"></result>
+		<result property="totalPrice" column="total_price"></result>
+		<result property="orderDate" column="order_date"></result>
+		<result property="status" column="status"></result>
+	</resultMap>
+	
+	<select id="selectAllOrder" resultMap="orderResultMap">
+	    <![CDATA[
+	    	SELECT  DISTINCT    o.order_idx,
+                    p.img, 
+			        p.brand, 
+			        p.name, 
+			        ps.size_name, 
+			        o.product_idx,
+			        o.quantity, 
+			        TO_CHAR(TO_NUMBER(REPLACE(p.price, ',', '')) * o.quantity, 'FM999,999,999') AS "total_price",
+			        o.order_date,
+                    o.status
+			FROM order_detail o
+			INNER JOIN product p ON p.product_idx = o.product_idx
+			INNER JOIN product_size ps ON ps.size_idx = o.size_idx
+			INNER JOIN cart c ON o.member_idx = c.member_idx
+			WHERE o.member_idx = #{loginMemberIdx, jdbcType=INTEGER}
+			ORDER BY o.order_idx DESC
+	    ]]>
+	</select>
+	
+	<delete id="deleteOrderProduct" parameterType="int">
+		 <![CDATA[
+	    	DELETE FROM order_detail WHERE order_idx=#{orderIdx}
+	    ]]>
+	</delete>
+	
+	<!-- 현재 상태 조회 -->
+    <select id="getOrderStatus" resultType="String">
+        SELECT status
+        FROM order_detail
+        WHERE order_idx = #{orderIdx}
+    </select>
+
+    <!-- 상태 업데이트 -->
+    <update id="updateOrderStatus" parameterType="map">
+        UPDATE order_detail
+        SET status = #{status, jdbcType=VARCHAR}
+        WHERE order_idx = #{orderIdx, jdbcType=INTEGER}
+    </update>
+	
+</mapper>

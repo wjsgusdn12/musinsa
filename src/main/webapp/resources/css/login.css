@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	overflow:hidden;
+  	transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+body{
+	width:100vw;
+	height:100vh;
+	background-color:white;
+	overflow-y:scroll;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+.main_area{
+	width:600px;
+	height:100%;
+	border:1px solid #EAEAEA;
+}
+
+.main_top{
+	width:600px;
+	height:55px;
+	background-color:#EAEAEA;
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+	padding:10px;
+}
+
+.main_top_left{
+	display:flex;
+	align-items:center;
+}
+
+.back_button{
+	cursor:pointer;
+}
+
+.home_button{
+	cursor:pointer;
+}
+
+.main_content{
+	padding:10px;
+}
+
+.id_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.pw_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+.submit_input{
+	width:100%;
+	height:40px;
+	margin-top:15px;
+	margin-bottom:15px;
+	background-color:black;
+	color:white;
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+}
+
+.find_id, .find_pw{
+	color:gray;
+	font-size:13px;
+	padding-left:5px;
+	border-left:1px solid lightgray;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.join_or_find{
+	display:flex;
+	align-items:center;
+	justify-content:flex-end;
+	gap:5px;
+}
+
+.join_button{
+	margin-right:3px;
+	background-color:white;
+	border:1px solid gray;
+	border-radius:4px;
+	padding:4px;
+	font-weight:bold;
+	cursor:pointer;
+	font-size:12px;
+}
+
+.name_input,
+.phone_input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	padding:5px;
+}
+
+
+
+
+

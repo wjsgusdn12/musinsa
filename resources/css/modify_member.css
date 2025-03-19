@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.email_input, .name_input, .address_input, .phone_input {
+    width: 100%;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+}
