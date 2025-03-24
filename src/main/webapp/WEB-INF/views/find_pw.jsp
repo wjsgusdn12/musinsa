@@ -4,6 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>비밀번호찾기 페이지</title>
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/login.css"/>
 	<script src="<%= request.getContextPath() %>/resources/js/jquery-3.7.1.min.js"></script>

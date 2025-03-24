@@ -6,6 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>좋아요 페이지</title>
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/index.css"/>
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/likes.css"/>
