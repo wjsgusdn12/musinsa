@@ -113,10 +113,10 @@ body{
 	bottom:5px;
 }
 
-form{
-	height:100%;
+form {
+    height: auto;
+    padding: 0 0 30px 0;
 }
-
 .header_text{
 	display:flex;
 	align-items:center;
