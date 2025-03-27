@@ -83,7 +83,6 @@
 		            },
 		            error: function(r, s, e) {
 		                console.log("error : ", r, s, e);
-		                alert("error!");
 		            }
 		        });
 		
@@ -120,7 +119,6 @@
 		            },
 		            error: function(r, s, e) {
 		                console.log("error : ", r, s, e);
-		                alert("error!");
 		            }
 		        });
 		    }
@@ -276,11 +274,9 @@
 		        		"quantity" : parseInt(quantity)
 		        	},
 		        	success:function(res){
-		        		alert("제품명 : "+productName+"("+size+")\n "+parseInt(quantity)+"개를 장바구니에 추가하였습니다!");
 		        		location.href="cart";
 		        	},
 		        	error:function(r,s,e){
-		        		alert("error");
 		        	}
 		        });
 	        });
@@ -317,10 +313,8 @@
 		        		"loginMemberIdx" : loginMemberIdx
 		        	},
 		        	success:function(res){
-		        		alert(res);
 		        	},
 		        	error:function(r,s,e){
-		        		alert("error");
 		        	}
 		        });
 	        });
@@ -373,7 +367,6 @@
     	    		location.reload();
     	    	},
     	    	error:function(r,s,e){
-    	    		alert("error : " + r,s,e);
     	    	}
     	    });
     	});
@@ -391,73 +384,71 @@
 	</script>
 </head>
 <body>
-	<div class="main_area">
-	
-		<!--------------------------------------- 팝업창공간 ----------------------------------------->
-		<div class="popup_background">
-			<div class="order_info_popup">
-				<div class="popup_background_close_button">
-					<svg class="popup_x_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
-                        <path d="M5 5L10 10M10 10L15 15M10 10L5 15M10 10L15 5" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
-                    </svg>
+	<!--------------------------------------- 팝업창공간 ----------------------------------------->
+	<div class="popup_background">
+		<div class="order_info_popup">
+			<div class="popup_background_close_button">
+				<svg class="popup_x_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                       <path d="M5 5L10 10M10 10L15 15M10 10L5 15M10 10L15 5" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
+                   </svg>
+			</div>
+			<div class="popup_option_area">
+				<div class="option_none">
+					<span>사이즈</span>
+					<svg class="size_view_button" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke"></path>
+					</svg>
 				</div>
-				<div class="popup_option_area">
-					<div class="option_none">
+				<div style="display:none;" class="option_block">
+					<div class="option_head">
 						<span>사이즈</span>
 						<svg class="size_view_button" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-						    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke"></path>
+						    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke" transform="rotate(180 10 10)"></path>
 						</svg>
 					</div>
-					<div style="display:none;" class="option_block">
-						<div class="option_head">
-							<span>사이즈</span>
-							<svg class="size_view_button" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke" transform="rotate(180 10 10)"></path>
-							</svg>
-						</div>
-						<div class="option_content">
-							<c:forEach var="i" begin="1" end="7">
-							    <div class="sizeName" sizeName="0${i}">0${i}</div>
-							</c:forEach>
-						</div>	
-					</div>
-					<!-- 선택한 옵션이 추가될 영역 -->
-					<div class="append_area" display="none"></div>
+					<div class="option_content">
+						<c:forEach var="i" begin="1" end="7">
+						    <div class="sizeName" sizeName="0${i}">0${i}</div>
+						</c:forEach>
+					</div>	
 				</div>
-				<div class="popup_button_area">
-					<div class="total_info" style="/* display:none; */">
-						<div class="final_product_quantity">
-							총 0개
-						</div>
-						<div class="final_product_price">
-							0원
-						</div>
+				<!-- 선택한 옵션이 추가될 영역 -->
+				<div class="append_area" display="none"></div>
+			</div>
+			<div class="popup_button_area">
+				<div class="total_info" style="/* display:none; */">
+					<div class="final_product_quantity">
+						총 0개
 					</div>
-					<div class="real_button_area">
-						<input class="cart_button" type="button" value="장바구니"/>
+					<div class="final_product_price">
+						0원
 					</div>
+				</div>
+				<div class="real_button_area">
+					<input class="cart_button" type="button" value="장바구니"/>
 				</div>
 			</div>
 		</div>
-		<!----------------------------------------------- 팝업창공간 ------------------------------------------>
-	
-		<div class="main_top">
-			<div class="main_top_left">
-				<svg class="back_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
-				<path d="M16.1004 21.7L8.61252 14.2122C8.49537 14.095 8.49537 13.9051 8.61252 13.7879L16.1004 6.30005" stroke="currentColor" stroke-width="1.4"></path></svg>
-				<b class="home_button">제품 상세보기</b>
-			</div>
-			<div class="main_top_right">
-				<div class="selectCartQuantity">
-					${selectCartQuantity}
-				</div>
-				<svg class="home_button real_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
-					<path d="M14.0004 23.7999H5.20039C5.03471 23.7999 4.90039 23.6656 4.90039 23.4999V11.0023C4.90039 10.9065 4.94609 10.8166 5.02339 10.7601L13.8234 4.3293C13.9288 4.25226 14.072 4.25226 14.1774 4.3293L22.9774 10.7601C23.0547 10.8166 23.1004 10.9065 23.1004 11.0023V23.4999C23.1004 23.6656 22.9661 23.7999 22.8004 23.7999H14.0004ZM14.0004 23.7999V14.5055" stroke="currentColor" stroke-width="1.4"></path></svg>
-				<svg class="cart_logo" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 20 20" fill="none" class="size-7">
-					<path d="M4.3 16.5C4.13431 16.5 4 16.3657 4 16.2V7.8C4 7.63431 4.13432 7.5 4.3 7.5H15.7C15.8657 7.5 16 7.63431 16 7.8V16.2C16 16.3657 15.8657 16.5 15.7 16.5H4.3Z" stroke-width="1.4" stroke="black" vector-effect="non-scaling-stroke"></path>
-					<path d="M7.5 7.5V5.5C7.5 4.11929 8.61929 3 10 3C11.3807 3 12.5 4.11929 12.5 5.5V7.5" stroke-width="1.4" stroke="black" vector-effect="non-scaling-stroke"></path></svg>
-			</div>
+	</div>
+	<!----------------------------------------------- 팝업창공간 ------------------------------------------>
+	<div class="main_top">
+		<div class="main_top_left">
+			<svg class="back_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
+			<path d="M16.1004 21.7L8.61252 14.2122C8.49537 14.095 8.49537 13.9051 8.61252 13.7879L16.1004 6.30005" stroke="currentColor" stroke-width="1.4"></path></svg>
+			<b class="home_button">제품 상세보기</b>
 		</div>
+		<div class="main_top_right">
+			<div class="selectCartQuantity">
+				${selectCartQuantity}
+			</div>
+			<svg class="home_button real_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
+				<path d="M14.0004 23.7999H5.20039C5.03471 23.7999 4.90039 23.6656 4.90039 23.4999V11.0023C4.90039 10.9065 4.94609 10.8166 5.02339 10.7601L13.8234 4.3293C13.9288 4.25226 14.072 4.25226 14.1774 4.3293L22.9774 10.7601C23.0547 10.8166 23.1004 10.9065 23.1004 11.0023V23.4999C23.1004 23.6656 22.9661 23.7999 22.8004 23.7999H14.0004ZM14.0004 23.7999V14.5055" stroke="currentColor" stroke-width="1.4"></path></svg>
+			<svg class="cart_logo" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 20 20" fill="none" class="size-7">
+				<path d="M4.3 16.5C4.13431 16.5 4 16.3657 4 16.2V7.8C4 7.63431 4.13432 7.5 4.3 7.5H15.7C15.8657 7.5 16 7.63431 16 7.8V16.2C16 16.3657 15.8657 16.5 15.7 16.5H4.3Z" stroke-width="1.4" stroke="black" vector-effect="non-scaling-stroke"></path>
+				<path d="M7.5 7.5V5.5C7.5 4.11929 8.61929 3 10 3C11.3807 3 12.5 4.11929 12.5 5.5V7.5" stroke-width="1.4" stroke="black" vector-effect="non-scaling-stroke"></path></svg>
+		</div>
+	</div>
+	<div class="main_area">
 		<div class="main_content">
 			<div class="item_img">
 			    <img class="item_img_tag" src="<%= request.getContextPath() %>/resources/img/${productInfo.img}"/>
@@ -522,17 +513,17 @@
 			    <img class="item_img_tag_footer" src="<%= request.getContextPath() %>/resources/img/detail_footer.png"/>
 			</div>
 		</div>
-		<div class="main_footer">
-			<form action="" method="post">
-				<div class="footer_buttons">
-				    <svg class="like_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-				        <path class="like_heart" d="M9.79493 16.3061C9.91046 16.4154 10.0895 16.4154 10.2051 16.3061C11.1045 15.4553 14.7235 12.0265 16.25 10.5C16.8895 9.85325 17.5 8.75 17.5 7.5C17.5 5.34156 15.8342 3.5 13.75 3.5C11.9105 3.5 11 4.99545 10 6.25C9 4.99545 8.08947 3.5 6.25 3.5C4.16579 3.5 2.5 5.34156 2.5 7.5C2.5 8.75 3.11053 9.85325 3.75 10.5C5.27651 12.0265 8.89549 15.4553 9.79493 16.3061Z" stroke-width="1.4" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
-				    </svg>
-				    <!-- 구매하기 버튼 -->
-				    <input onclick="return order();" class="submit_input" type="button" value="구매하기">
-				</div>
-			</form>
-		</div>
+	</div>
+	<div class="main_footer">
+		<form action="" method="post">
+			<div class="footer_buttons">
+			    <svg class="like_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+			        <path class="like_heart" d="M9.79493 16.3061C9.91046 16.4154 10.0895 16.4154 10.2051 16.3061C11.1045 15.4553 14.7235 12.0265 16.25 10.5C16.8895 9.85325 17.5 8.75 17.5 7.5C17.5 5.34156 15.8342 3.5 13.75 3.5C11.9105 3.5 11 4.99545 10 6.25C9 4.99545 8.08947 3.5 6.25 3.5C4.16579 3.5 2.5 5.34156 2.5 7.5C2.5 8.75 3.11053 9.85325 3.75 10.5C5.27651 12.0265 8.89549 15.4553 9.79493 16.3061Z" stroke-width="1.4" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
+			    </svg>
+			    <!-- 구매하기 버튼 -->
+			    <input onclick="return order();" class="submit_input" type="button" value="구매하기">
+			</div>
+		</form>
 	</div>
 </body>
 </html>

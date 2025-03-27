@@ -16,7 +16,7 @@
 	<script>
 		$(function(){
 			$(".back_button").click(function(){
-				history.back();
+				location.href="index";
 			});
 			$(".home_button.real_button").click(function(){
 				location.href="index";
@@ -264,78 +264,78 @@
 	</script>
 </head>
 <body>
-	<div class="main_area">
-		<!--------------------------------------- 팝업창공간 ----------------------------------------->
-		<div class="popup_background" cart_idx="">
-			<div class="order_info_popup">
-				<div class="popup_background_close_button">
-					<svg class="popup_x_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
-                        <path d="M5 5L10 10M10 10L15 15M10 10L5 15M10 10L15 5" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
-                    </svg>
+	<!--------------------------------------- 팝업창공간 ----------------------------------------->
+	<div class="popup_background" cart_idx="">
+		<div class="order_info_popup">
+			<div class="popup_background_close_button">
+				<svg class="popup_x_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                       <path d="M5 5L10 10M10 10L15 15M10 10L5 15M10 10L15 5" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
+                   </svg>
+			</div>
+			<div class="popup_option_area">
+				<div class="option_none">
+					<span class="popup_size_name_text">사이즈</span>
+					<svg class="size_view_button" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke"></path>
+					</svg>
 				</div>
-				<div class="popup_option_area">
-					<div class="option_none">
+				<div style="display:none;" class="option_block">
+					<div class="option_head">
 						<span class="popup_size_name_text">사이즈</span>
 						<svg class="size_view_button" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-						    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke"></path>
+						    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke" transform="rotate(180 10 10)"></path>
 						</svg>
 					</div>
-					<div style="display:none;" class="option_block">
-						<div class="option_head">
-							<span class="popup_size_name_text">사이즈</span>
-							<svg class="size_view_button" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							    <path d="M4 6 L10 12 L16 6" fill="none" vector-effect="non-scaling-stroke" transform="rotate(180 10 10)"></path>
-							</svg>
-						</div>
-						<div class="option_content">
-							<c:forEach var="i" begin="1" end="7">
-							    <div class="sizeName" sizeName="0${i}">0${i}</div>
-							</c:forEach>
-						</div>	
-					</div>
-					<div class="selected_option">
-		                <div class="option_bottom">
-		                    <div class="selected_quantity">
-		                        <div class="minus_input">
-		                            <svg class="minus_one" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-		                                <path d="M4 10H16" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
-		                            </svg>
-		                        </div>
-		                        <input class="quantity_input" value="1"/>
-		                        <div class="plus_input">
-		                            <svg class="plus_one" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-		                                <path d="M10 4V10M10 10V16M10 10H4M10 10H16" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
-		                            </svg>
-		                        </div>
-		                    </div>
-		                    <div>
-		                    	<b class="selected_price">${productInfo.price}</b><b>원</b>
-		                    </div>
-		                </div>
-		            </div>
+					<div class="option_content">
+						<c:forEach var="i" begin="1" end="7">
+						    <div class="sizeName" sizeName="0${i}">0${i}</div>
+						</c:forEach>
+					</div>	
 				</div>
-				<div class="popup_button_area">
-					<div class="total_info" style="/* display:none; */">
-					</div>
-					<div class="real_button_area">
-						<input class="cart_button cancle_button" type="button" value="취소"/>
-						<input class="order_button modify_button" type="button" value="변경하기"/>
-					</div>
+				<div class="selected_option">
+	                <div class="option_bottom">
+	                    <div class="selected_quantity">
+	                        <div class="minus_input">
+	                            <svg class="minus_one" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+	                                <path d="M4 10H16" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
+	                            </svg>
+	                        </div>
+	                        <input class="quantity_input" value="1"/>
+	                        <div class="plus_input">
+	                            <svg class="plus_one" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+	                                <path d="M10 4V10M10 10V16M10 10H4M10 10H16" class="stroke-black" stroke-miterlimit="10" vector-effect="non-scaling-stroke"></path>
+	                            </svg>
+	                        </div>
+	                    </div>
+	                    <div>
+	                    	<b class="selected_price">${productInfo.price}</b><b>원</b>
+	                    </div>
+	                </div>
+	            </div>
+			</div>
+			<div class="popup_button_area">
+				<div class="total_info" style="/* display:none; */">
+				</div>
+				<div class="real_button_area">
+					<input class="cart_button cancle_button" type="button" value="취소"/>
+					<input class="order_button modify_button" type="button" value="변경하기"/>
 				</div>
 			</div>
 		</div>
-		<!----------------------------------------------- 팝업창공간 ------------------------------------------>
-		<div class="main_top">
-			<div class="main_top_left">
-				<svg class="back_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
-				<path d="M16.1004 21.7L8.61252 14.2122C8.49537 14.095 8.49537 13.9051 8.61252 13.7879L16.1004 6.30005" stroke="currentColor" stroke-width="1.4"></path></svg>
-				<b class="home_button">장바구니</b>
-			</div>
-			<div class="main_top_right">
-				<svg class="home_button real_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
-				<path d="M14.0004 23.7999H5.20039C5.03471 23.7999 4.90039 23.6656 4.90039 23.4999V11.0023C4.90039 10.9065 4.94609 10.8166 5.02339 10.7601L13.8234 4.3293C13.9288 4.25226 14.072 4.25226 14.1774 4.3293L22.9774 10.7601C23.0547 10.8166 23.1004 10.9065 23.1004 11.0023V23.4999C23.1004 23.6656 22.9661 23.7999 22.8004 23.7999H14.0004ZM14.0004 23.7999V14.5055" stroke="currentColor" stroke-width="1.4"></path></svg>
-			</div>
+	</div>
+	<!----------------------------------------------- 팝업창공간 ------------------------------------------>
+	<div class="main_top">
+		<div class="main_top_left">
+			<svg class="back_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
+			<path d="M16.1004 21.7L8.61252 14.2122C8.49537 14.095 8.49537 13.9051 8.61252 13.7879L16.1004 6.30005" stroke="currentColor" stroke-width="1.4"></path></svg>
+			<b class="home_button">장바구니</b>
 		</div>
+		<div class="main_top_right">
+			<svg class="home_button real_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
+			<path d="M14.0004 23.7999H5.20039C5.03471 23.7999 4.90039 23.6656 4.90039 23.4999V11.0023C4.90039 10.9065 4.94609 10.8166 5.02339 10.7601L13.8234 4.3293C13.9288 4.25226 14.072 4.25226 14.1774 4.3293L22.9774 10.7601C23.0547 10.8166 23.1004 10.9065 23.1004 11.0023V23.4999C23.1004 23.6656 22.9661 23.7999 22.8004 23.7999H14.0004ZM14.0004 23.7999V14.5055" stroke="currentColor" stroke-width="1.4"></path></svg>
+		</div>
+	</div>
+	<div class="main_area">
 		<div class="main_content">
 			<!-- 장바구니 상품 있을 경우 -->
 			<c:forEach var="cart" items="${cartList }">
@@ -392,18 +392,18 @@
 			</div>
 			</c:if>
 		</div>
-		<div class="main_footer">
-			<!-- 장바구니 상품 있을 경우 -->
-			<c:if test="${fn:length(cartList) != 0}">
-				<form action="" method="post">
-					<input class="submit_input real_button" type="submit" value="${finalPrice }원 구매하기 (${finalQuantity }개)"/>
-				</form>
-			</c:if>
-			<!-- 장바구니 상품 없을 경우 -->
-			<c:if test="${fn:length(cartList) == 0}">
-			   <input onclick="location.href='index'" class="submit_input" type="submit" value="쇼핑 계속하기"/>
-			</c:if>
-		</div>
+	</div>
+	<div class="main_footer">
+		<!-- 장바구니 상품 있을 경우 -->
+		<c:if test="${fn:length(cartList) != 0}">
+			<form action="" method="post">
+				<input class="submit_input real_button" type="submit" value="${finalPrice }원 구매하기 (${finalQuantity }개)"/>
+			</form>
+		</c:if>
+		<!-- 장바구니 상품 없을 경우 -->
+		<c:if test="${fn:length(cartList) == 0}">
+		   <input onclick="location.href='index'" class="submit_input" type="submit" value="쇼핑 계속하기"/>
+		</c:if>
 	</div>
 </body>
 </html>

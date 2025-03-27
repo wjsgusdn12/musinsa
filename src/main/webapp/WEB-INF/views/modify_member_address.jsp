@@ -141,7 +141,6 @@
             		"id":inputId
             	},
             	success:function(res){
-            		alert("회원 정보가 변경되었습니다!");
             		location.href="order";
             	},
             	error:function(r,s,e){

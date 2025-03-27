@@ -16,16 +16,19 @@ body{
 	display:flex;
 	align-items:center;
 	justify-content:center;
+	flex-direction: column;
 }
 
-.main_area{
-	width:600px;
-	height:100%;
-	border:1px solid #EAEAEA;
+.main_area {
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #EAEAEA;
 }
 
 .main_top{
 	width: 100%;
+    max-width: 600px;
 	height:65px;
 	background-color:black;
 	display:flex;
@@ -34,9 +37,9 @@ body{
 	padding:15px;
 }
 
-.main_top_left{
-	display:flex;
-	align-items:center;
+.main_top_left {
+    display: flex;
+    align-items: flex-start;
 }
 
 .back_button{
@@ -45,7 +48,7 @@ body{
 
 .home_button{
 	cursor:pointer;
-	font-size:22px;
+	font-size:30px;
 	color:white;
 }
 
@@ -158,7 +161,7 @@ body{
 
 .item_main_whole {
     width: 100%;
-    height: 86.5%;
+    height: 93%;
     display: flex;
     overflow-y: scroll;
     flex-wrap: wrap;
@@ -259,10 +262,12 @@ body{
 .member_info_text {
     color: white;
     z-index: 1;
-    font-size: 12px;
-    height: 17px;
+    font-size: 15px;
     min-width: 197px;
-    margin: 46px 18px 0 -97px;
+    background-color: black;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 0 5px 10px;
 }
 
 .product_like .like_heart.on {

@@ -16,7 +16,7 @@
 	<script>
 		$(function(){
 			$(".back_button").click(function(){
-				history.back();
+				location.href="cart";
 			});
 			$(".home_button.real_button").click(function(){
 				location.href="index";

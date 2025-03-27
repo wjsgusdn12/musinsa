@@ -30,21 +30,18 @@
 		    		consoloe.log(r,s,e);
 		    	}
 		    });
-		    
 			$(".cart_list").each(function(){
 				let dateText = $(this).find(".date_text").text();
 			    let formattedDate = dateText.split(" ")[0];
 			    formattedDate = formattedDate.replace(/-/g, ".");
 			    $(this).find(".date_text").text(formattedDate);
 			})
-			
 			$(".back_button").click(function(){
 				history.back();
 			});
 			$(".home_button.real_button").click(function(){
 				location.href="index";
 			});
-			
 			// 사이즈 선택 클릭
 		    $(".sizeName").click(function(event){
 		        let sizeName = $(this).attr("sizeName");
@@ -69,14 +66,12 @@
 		        
 		        event.stopPropagation();
 		    });
-
 		    // 옵션 팝업 닫기
 		    $(".option_none").click(function() {
 		        $(this).css('display','none');
 		        $(".option_block").css('display','flex');
 		        event.stopPropagation();
 		    });
-
 		    // 옵션 선택 블록 클릭
 		    $(".option_block").click(function() {
 		        $(this).css('display','none');
@@ -174,7 +169,6 @@
 		            }
 		        });
 		    }
-
 		    // 1분마다 상태 변경하기
 		    $(".cart_list").each(function() {
 		    	let productName = $(this).find(".name_text").text().trim();
@@ -190,10 +184,9 @@
 		            }else if (currentStatus === '배송중') {
 		                changeOrderStatus(orderIdx);
 		            }
-		        }, 20000);  // 20000ms = 20초
+		        }, 10000);  // 10000ms = 10초
 		    });
 		});
-		
 		$(document).ready(function() {
 		    $(".cart_list").each(function(){
 		    	let orderIdx = $(this).attr("order_idx").trim();
@@ -223,7 +216,8 @@
 			</div>
 		</div>
 		<div class="main_content">
-			<div class="alert_message"><b>20초마다 "배송상태"가 업데이트 됩니다.<br/></b></div>
+			<div class="alert_message"><b>10초마다 "배송상태"가 업데이트 됩니다.<br/><br/></b></div>
+			<div class="alert_message"><b>주문 취소는 "상품 준비중"일때만 가능합니다<br/></b></div>
 			<!-- 배송상태 기능을 위한 수정중 -->
 			<c:forEach var="order" items="${selectAllOrder }">
 				<div class="cart_list ${order.orderIdx }" order_idx="${order.orderIdx }">
