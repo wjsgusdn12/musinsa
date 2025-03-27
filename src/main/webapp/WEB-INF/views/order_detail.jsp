@@ -257,7 +257,7 @@
 				<div class="delete_check_popup_background ${order.orderIdx }" order_idx="${order.orderIdx }">
 					<div class="delete_check_popup">
 						<div class="delete_popup_text">상품을 주문 취소 하시겠습니까?</div><div></div>
-						<div>
+						<div class="delete_popup_button_area">
 							<input type="button" class="no_button" value="돌아가기"/>
 							<input type="button" class="yes_button"  value="취소하기"  order_idx="${order.orderIdx }"/>
 						</div>

@@ -377,6 +377,16 @@
     	    	}
     	    });
     	});
+    	//문의 폼 none block 스위칭
+    	$(".submit_input.ask").click(function(){
+    	    let displayValue = $(".ask_input_area").css('display');
+    	    
+    	    if(displayValue === 'none'){
+    	        $(".ask_input_area").css('display', 'block');
+    	    } else if(displayValue === 'block'){
+    	        $(".ask_input_area").css('display', 'none');
+    	    }
+    	});
 	});
 	</script>
 </head>

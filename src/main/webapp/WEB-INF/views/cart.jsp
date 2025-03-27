@@ -377,7 +377,7 @@
 				<div class="delete_check_popup_background" cart_idx="${cart.cartIdx }">
 					<div class="delete_check_popup">
 						<div class="delete_popup_text">상품을 삭제하시겠습니까?</div><div></div>
-						<div>
+						<div class="delete_popup_button_area">
 							<input type="button" class="no_button" value="취소"/>
 							<input type="button" class="yes_button"  value="삭제하기"  cart_idx="${cart.cartIdx }"/>
 						</div>
