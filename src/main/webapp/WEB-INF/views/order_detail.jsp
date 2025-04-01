@@ -199,7 +199,7 @@
 		});
 	</script>
 </head>
-<body>
+<body class="wrap">
 	<div id="customAlert">주문 취소가 완료 되었습니다</div>
 	<div id="customAlert_shipping_start">주문하신 상품이 배송시작 되었습니다</div>
 	<div id="customAlert_shipping_end">주문하신 상품이 배송완료 되었습니다</div>
@@ -268,4 +268,8 @@
 		</div>
 	</div>
 </body>
+	<script>
+	    // 페이지 로드 시, .wrap 요소의 높이를 화면 크기에 맞게 설정
+	    document.querySelector(".wrap").style.height = window.innerHeight + "px";
+	</script>
 </html>

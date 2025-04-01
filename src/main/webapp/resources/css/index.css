@@ -8,6 +8,10 @@
   	transition: background-color 1s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
 }
 
+img{
+	object-fit: cover;
+}
+
 body{
 	width:100vw;
 	height: calc(100vh - env(safe-area-inset-bottom));
@@ -225,9 +229,6 @@ body{
 .item_info{
 	height: 138px;
     padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap:5px;
 }
 
 .item_img_tag{

@@ -263,7 +263,7 @@
 		});
 	</script>
 </head>
-<body>
+<body class="wrap">
 	<!--------------------------------------- 팝업창공간 ----------------------------------------->
 	<div class="popup_background" cart_idx="">
 		<div class="order_info_popup">
@@ -406,4 +406,8 @@
 		</c:if>
 	</div>
 </body>
+	<script>
+	    // 페이지 로드 시, .wrap 요소의 높이를 화면 크기에 맞게 설정
+	    document.querySelector(".wrap").style.height = window.innerHeight + "px";
+	</script>
 </html>
