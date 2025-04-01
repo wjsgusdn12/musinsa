@@ -193,6 +193,14 @@
             });
             $(".final_cancel_membership").click(function(){
             	let loginMemberIdx = "${sessionScope.loginMemberIdx}";
+            	let loginMemberName = "${sessionScope.loginMemberName}";
+            	
+            	if(loginMemberName=='test'){
+            		alert("테스트 계정은 회원탈퇴가 불가능 합니다"); 
+            		$(".popup_cancel_membership_background").css('display','none');
+            		return;
+            	}
+            	
             	$.ajax({
             		url:'deleteMember',
             		type:'post',

@@ -64,7 +64,7 @@
 			        },
 			        error: function(r, s, e) {
 			            console.log("error : ", r, s, e);
-			            alert("error!");
+			            consloe.log("error!");
 			        }
 			    });
 			});
@@ -85,7 +85,7 @@
 			        },
 			        error: function(r, s, e) {
 			            console.log("세션 저장 error: ", r, s, e);
-			            alert("좋아요 상태 저장 중 오류가 발생했습니다.");
+			            consloe.log("좋아요 상태 저장 중 오류가 발생했습니다.");
 			        }
 			    });
 			});
@@ -119,7 +119,7 @@
 			            		console.log(res);
 			            	},
 			            	error:function(r,s,e){
-			            		alert("error");
+			            		consloe.log("error");
 			            		console.log(r,s,e);
 			            	}
 			            });
@@ -250,7 +250,7 @@
 							location.href="cart";
 						},
 						error:function(r,s,e){
-							alert(r,s,e)
+							consloe.log(r,s,e)
 						}
 					});
 				});
