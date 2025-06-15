@@ -116,7 +116,7 @@
 			            		"cartIdx":cartIdx
 			            	},
 			            	success:function(res){
-			            		console.log(res);
+
 			            	},
 			            	error:function(r,s,e){
 			            		consloe.log("error");
@@ -264,6 +264,7 @@
 	</script>
 </head>
 <body class="wrap">
+	<b style="display:flex; align-items:center; justify-content:center; font-size:25px; margin-bottom:5px;"><a href="https://www.notion.so/api-21159556933c80b6b2cafa4dbdb89899">☞ API명세 바로가기 ☜</a></b>
 	<!--------------------------------------- 팝업창공간 ----------------------------------------->
 	<div class="popup_background" cart_idx="">
 		<div class="order_info_popup">

@@ -78,9 +78,8 @@ public class HomeController {
 	
 	@RequestMapping("/deleteCart")
 	@ResponseBody
-	public String deleteCart(int cartIdx) {
+	public void deleteCart(int cartIdx) {
 		pService.deleteCart(cartIdx);
-		return "success";
 	}
 	
 	@RequestMapping("/deleteMember")

@@ -114,6 +114,7 @@
 	</script>
 </head>
 <body class="wrap">
+	<b style="display:flex; align-items:center; justify-content:center; font-size:25px; margin-bottom:5px;"><a href="https://www.notion.so/api-21159556933c80b6b2cafa4dbdb89899">☞ API명세 바로가기 ☜</a></b>
 	<div class="main_top">
 		<div class="main_top_left">
 			<span class="home_button">MUSINSA</span>

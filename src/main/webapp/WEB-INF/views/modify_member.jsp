@@ -235,6 +235,7 @@
 	</div>
 	<!-- 팝업 공간 -->
 	<div class="main_area">
+	<b style="display:flex; align-items:center; justify-content:center; font-size:25px; margin-bottom:5px;"><a href="https://www.notion.so/api-21159556933c80b6b2cafa4dbdb89899">☞ API명세 바로가기 ☜</a></b>
 		<div class="main_top">
 			<div class="main_top_left">
 				<svg class="back_button" width="28" height="28" viewBox="0 0 28 28" fill="none">
