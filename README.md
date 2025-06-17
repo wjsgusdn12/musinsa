@@ -1,11 +1,11 @@
-# 🛍️ 무신사 쇼핑몰 클론 (개인 프로젝트)
+# 🛍️ 무신사 쇼핑몰 (개인 프로젝트)
 
 ![Spring](https://img.shields.io/badge/Spring-Framework-green?logo=spring)
 ![MyBatis](https://img.shields.io/badge/MyBatis-ORM-blue?logo=databricks)
 ![Linux](https://img.shields.io/badge/Ubuntu-Server-orange?logo=ubuntu)
 
 ## 🧾 개요
-무신사 쇼핑몰의 UI/UX를 참고하여, **Spring + MyBatis 기반의 쇼핑몰 웹 애플리케이션**을 개인적으로 클론 개발했습니다.
+무신사 쇼핑몰의 UI/UX를 참고하여, **Spring + MyBatis 기반의 쇼핑몰 웹 애플리케이션**을 개인적으로 개발했습니다.
 
 ## 🗓️ 개발 기간
 **2025.02.28 ~ 2025.03.19 (약 15일)**
